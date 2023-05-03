@@ -28,13 +28,14 @@ rectangle Books {
         }
 }
 actor "User" as u
+
 u --> UC0
 u --> UC1
 u --> UC2
 u --> UC3
-u ---> UC4
+u --> UC4
 u --> UC5
-u ---> UC6
+u -> UC6
 
 actor "Admin" as a
 
@@ -47,8 +48,8 @@ a -[hidden]-> UC8
 a -[hidden]-> UC9
 a -[hidden]-> UC10
 
-UC7 <--> UC4
-UC7 <--> UC6
+UC7 <..> UC4
+UC7 <..> UC6
 UC8 =[hidden]= BookAPI
 UC9 <=r= UC8
 UC8 <=r= UC9
