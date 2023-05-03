@@ -43,4 +43,15 @@ public class UserFacade {
         return user;
     }
 
+    public User addUser(String username, String password) {
+        EntityManager em = emf.createEntityManager();
+        User user = new User(username, password);
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+        em.close();
+
+        return user;
+    }
+
 }
