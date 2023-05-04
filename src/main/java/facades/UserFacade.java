@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import security.errorhandling.AuthenticationException;
 
 /**
- * @author lam@cphbusiness.dk
+ * @author oliver
  */
 public class UserFacade {
 
