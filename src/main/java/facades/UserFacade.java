@@ -54,4 +54,35 @@ public class UserFacade {
         return user;
     }
 
+    public User deleteUser(String username) {
+        EntityManager em = emf.createEntityManager();
+        User user = em.find(User.class, username);
+        em.getTransaction().begin();
+        em.remove(user);
+        em.getTransaction().commit();
+        em.close();
+
+        return user;
+    }
+
+    public User editUser(String username, String password) {
+        EntityManager em = emf.createEntityManager();
+        User user = em.find(User.class, username);
+        user.setUserPass(password);
+        em.getTransaction().begin();
+        em.merge(user);
+        em.getTransaction().commit();
+        em.close();
+
+        return user;
+    }
+
+    public User getUser(String username) {
+        EntityManager em = emf.createEntityManager();
+        User user = em.find(User.class, username);
+        em.close();
+
+        return user;
+    }
+
 }
