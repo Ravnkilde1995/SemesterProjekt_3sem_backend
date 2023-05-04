@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class UserDTO implements Serializable {
 
-String username;
-String password;
+private String username;
+private String password;
 
     public UserDTO(String username, String password) {
         this.username = username;

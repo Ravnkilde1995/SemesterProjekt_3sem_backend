@@ -60,4 +60,6 @@ import utils.EMF_Creator;
             User u = userFacade.addUser(ud.getUsername(), ud.getPassword());
             return Response.ok(GSON.toJson(new UserDTO(u))).build();
         }
+
+
     }
