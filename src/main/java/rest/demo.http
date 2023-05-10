@@ -14,5 +14,5 @@ Content-Type: application/json
   "password": "test123"
 }
 ###
-GET http://localhost:8080/api/info/admin
+GET http://localhost:8080/api/info/user
 x-access-token:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJleHAiOjE2ODMxMDE4MzEsImlhdCI6MTY4MzEwMDAzMSwiaXNzdWVyIjoic2VtZXN0ZXJzdGFydGNvZGUtZGF0MyIsInVzZXJuYW1lIjoiYWRtaW4ifQ.G26k7xz77o2La6NDw4ZjBRgOISQxJTgTrktlXeoI59I"

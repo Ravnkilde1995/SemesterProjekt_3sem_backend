@@ -2,8 +2,8 @@ package rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import dtos.UserDTO;
-import entities.User;
+import dtos.ReviewDTO;
+import entities.Review;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -12,17 +12,17 @@ import javax.persistence.TypedQuery;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
-import facades.UserFacade;
+import facades.ReviewFacade;
 import utils.EMF_Creator;
 
 /**
- * @author oliver
+ * @author Christoffer
  */
-@Path("user")
-public class UserResource {
+
+public class ReviewResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-    private static final UserFacade userFacade = UserFacade.getUserFacade(EMF);
+    private static final ReviewFacade reviewFacade = ReviewFacade.getReviewFacade(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     @Context
@@ -41,13 +41,13 @@ public class UserResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("all")
-    public String allUsers() {
+    public String allReviews() {
 
         EntityManager em = EMF.createEntityManager();
         try {
-            TypedQuery<User> query = em.createQuery("select u from User u", entities.User.class);
-            List<User> users = query.getResultList();
-            return "[" + users.size() + "]";
+            TypedQuery<Review> query = em.createQuery("select r from Review r", entities.Review.class);
+            List<Review> reviews = query.getResultList();
+            return "[" + reviews.size() + "]";
         } finally {
             em.close();
         }
@@ -56,11 +56,10 @@ public class UserResource {
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
-    public Response createUser(String content) {
-        UserDTO ud = GSON.fromJson(content, UserDTO.class);
-        User u = userFacade.addUser(ud.getUsername(), ud.getPassword());
-        return Response.ok(GSON.toJson(new UserDTO(u))).build();
+    public Response createReview(String content) {
+        ReviewDTO rd = GSON.fromJson(content, ReviewDTO.class);
+        Review r = reviewFacade.addReview(rd.getBookshelf_id(), rd.getReview_score(), rd.getReview_text());
+        return Response.ok(GSON.toJson(new ReviewDTO(r))).build();
     }
-
 
 }

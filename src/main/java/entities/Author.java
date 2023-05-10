@@ -17,11 +17,13 @@ public class Author implements Serializable {
     @NotNull
     @Column(name = "author_id")
     private int authorId;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 300)
     @Column(name = "first_name")
     private String firstName;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 300)
