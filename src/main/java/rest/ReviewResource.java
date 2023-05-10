@@ -18,7 +18,7 @@ import utils.EMF_Creator;
 /**
  * @author Christoffer
  */
-
+@Path("review")
 public class ReviewResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
