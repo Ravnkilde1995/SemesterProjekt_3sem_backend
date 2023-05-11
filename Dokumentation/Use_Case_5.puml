@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor User
+actor Admin
+
+
+rectangle LibraryPage {
+  usecase "View Bookshelf" as UC1
+  usecase "Add Book" as UC5
+}
+
+rectangle BookshelfPage {
+  usecase "Create Review" as UC2
+  usecase "View Review" as UC3
+}
+
+rectangle CreateUserPage {
+  usecase "Create User" as UC4
+}
+
+User --> UC1 : Login
+User --> UC5 : Login
+UC1 --> UC2 : Click Bookshelf
+UC2 --> UC3 : Click read review
+Admin ----> UC1 : Login
+Admin ----> UC3 : Click Bookshelf
+UC3 --> UC2 : Click Create Review
+User --> UC4 : Click Sign Up
+UC4 --> UC5 : Click Create User
+UC5 --> UC1 : Click Bookshelf
+
+@enduml
