@@ -31,13 +31,14 @@ public class ReviewResource {
     @Context
     SecurityContext securityContext;
 
+    //Just to verify if the database is setup
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getInfoForAll() {
         return "{\"msg\":\"Hello user\"}";
     }
 
-    //Just to verify if the database is setup
+    //Get all reviews
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("all")
@@ -53,12 +54,13 @@ public class ReviewResource {
         }
     }
 
+    //Create a review
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes({MediaType.APPLICATION_JSON})
     public Response createReview(String content) {
         ReviewDTO rd = GSON.fromJson(content, ReviewDTO.class);
-        Review r = reviewFacade.addReview(rd.getBookshelf_id(), rd.getReview_score(), rd.getReview_text());
+        Review r = reviewFacade.addReview(rd.getBookshelf_id(), rd.getBook_id(), rd.getReview_score(), rd.getReview_text());
         return Response.ok(GSON.toJson(new ReviewDTO(r))).build();
     }
 

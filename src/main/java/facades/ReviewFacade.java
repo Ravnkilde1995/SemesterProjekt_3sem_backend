@@ -32,9 +32,9 @@ public class ReviewFacade {
         return instance;
     }
 
-    public Review addReview(int bookshelf_id, int review_score, String review_text) {
+    public Review addReview(int bookshelf_id, int book_id, int review_score, String review_text) {
         EntityManager em = emf.createEntityManager();
-        Review review = new Review(bookshelf_id, review_score, review_text);
+        Review review = new Review(bookshelf_id, book_id, review_score, review_text);
         em.getTransaction().begin();
         em.persist(review);
         em.getTransaction().commit();
@@ -43,10 +43,11 @@ public class ReviewFacade {
         return review;
     }
 
-public Review editReview(int review_id, int bookshelf_id, int review_score, String review_text) {
+public Review editReview(int review_id, int bookshelf_id, int book_id, int review_score, String review_text) {
         EntityManager em = emf.createEntityManager();
         Review review = em.find(Review.class, review_id);
         review.setBookshelf_id(bookshelf_id);
+        review.setBook_id(book_id);
         review.setReview_score(review_score);
         review.setReview_text(review_text);
         em.getTransaction().begin();
@@ -79,6 +80,14 @@ public Review editReview(int review_id, int bookshelf_id, int review_score, Stri
     public Review getReviewByBookshelfId(int bookshelf_id) {
         EntityManager em = emf.createEntityManager();
         Review review = em.find(Review.class, bookshelf_id);
+        em.close();
+
+        return review;
+    }
+
+    public Review getReviewByBookId(int book_id) {
+        EntityManager em = emf.createEntityManager();
+        Review review = em.find(Review.class, book_id);
         em.close();
 
         return review;
