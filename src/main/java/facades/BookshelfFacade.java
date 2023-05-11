@@ -1,9 +1,14 @@
 package facades;
 
+import dtos.RenameMeDTO;
 import entities.Bookshelf;
+import entities.RenameMe;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
+import java.sql.PreparedStatement;
+import java.util.List;
 
 /**
  * @author oliver
@@ -40,5 +45,14 @@ public class BookshelfFacade {
 
         return bookshelf;
     }
+
+    /*
+    public Bookshelf checkBook(String title, String user_name){
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Bookshelf> query = em.createQuery("SELECT r FROM bookshelf r WHERE user_name = ? AND title = ?", Bookshelf.class);
+        PreparedStatement ps = emf.prepareStatement();
+        List<Bookshelf> rms = query.getResultList();
+        return RenameMeDTO.getDtos(rms);
+    }*/
 
 }
