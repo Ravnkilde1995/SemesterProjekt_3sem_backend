@@ -10,11 +10,13 @@ public class Bookshelf implements Serializable {
 
     @Id
     @Column(name="bookshelf_id")
-    private int bookshelf_id;
-
+    private String bookshelf_id;
 
     @Column(name = "user_name", length = 25)
     private String user_name;
+
+    @Column(name="book_id")
+    private String book_id;
 
     @Column(name="title")
     private String title;
@@ -30,22 +32,25 @@ public class Bookshelf implements Serializable {
 
     }
 
-    public Bookshelf(String user_name, String title, String author, String description) {
+    public Bookshelf(String user_name, String book_id, String title, String author, String description) {
         this.user_name = user_name;
+        this.book_id = book_id;
         this.title = title;
         this.author = author;
         this.description = description;
     }
 
+
     public Bookshelf(String user_name) {
         this.user_name = user_name;
     }
 
-    public int getBookshelf_id() {
+
+    public String getBookshelf_id() {
         return bookshelf_id;
     }
 
-    public void setBookshelf_id(int bookshelf_id) {
+    public void setBookshelf_id(String bookshelf_id) {
         this.bookshelf_id = bookshelf_id;
     }
 
@@ -86,6 +91,9 @@ public class Bookshelf implements Serializable {
         return "Bookshelf{" +
                 "bookshelf_id=" + bookshelf_id +
                 ", user_name='" + user_name + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

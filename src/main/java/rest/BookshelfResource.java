@@ -40,7 +40,7 @@ public class BookshelfResource {
     public Response createBookshelf(String content){
         BookshelfDTO bs = GSON.fromJson(content, BookshelfDTO.class);
         //TODO replace hardcoded username (bs.getUser_Name) with token
-        Bookshelf b = bookshelfFacade.addBookshelf(bs.getUser_name(), bs.getTitle(), bs.getAuthor(), bs.getDescription());
+        Bookshelf b = bookshelfFacade.addBookshelf(bs.getUser_name(), bs.getBook_id(), bs.getTitle(), bs.getAuthor(), bs.getDescription());
         return Response.ok(GSON.toJson(new BookshelfDTO(b))).build();
     }
 
