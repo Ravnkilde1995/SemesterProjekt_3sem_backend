@@ -86,6 +86,9 @@ public class Bookshelf implements Serializable {
         return "Bookshelf{" +
                 "bookshelf_id=" + bookshelf_id +
                 ", user_name='" + user_name + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

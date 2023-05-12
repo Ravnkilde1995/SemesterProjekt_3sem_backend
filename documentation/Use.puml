@@ -1,0 +1,60 @@
+@startuml
+!pragma layout smetana
+left to right direction
+skinparam packageStyle rectangle
+
+node "Book API" as BookAPI {
+    [Fetch Books]
+}
+
+left to right direction
+
+rectangle Library {
+
+usecase UC0 as "Application Login"
+usecase UC1 as "Register new User"
+usecase UC2 as "Login"
+usecase UC3 as "Loan Book"
+usecase UC4 as "See Loan"
+usecase UC5 as "Return Book"
+usecase UC6 as "Due Date and Renew"
+
+rectangle Books {
+        usecase UC7 as "See all User Loans,
+        and their Due Dates"
+        usecase UC8 as "See all Books"
+        usecase UC9 as "Add new Book"
+        usecase UC10 as "Remove Book"
+        }
+}
+actor "User" as u
+
+u --> UC0
+u --> UC1
+u --> UC2
+u --> UC3
+u --> UC4
+u --> UC5
+u -> UC6
+
+actor "Admin" as a
+
+BookAPI ..> Books
+UC0 ==> Books
+a --> UC0
+
+a -[hidden]-> UC7
+a -[hidden]-> UC8
+a -[hidden]-> UC9
+a -[hidden]-> UC10
+
+UC7 <..> UC4
+UC7 <..> UC6
+UC8 =[hidden]= BookAPI
+UC9 <=r= UC8
+UC8 <=r= UC9
+UC10 ==> UC8
+
+
+
+@enduml

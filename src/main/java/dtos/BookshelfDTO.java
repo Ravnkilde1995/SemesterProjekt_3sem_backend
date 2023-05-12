@@ -2,6 +2,7 @@ package dtos;
 
 
 import entities.Bookshelf;
+import facades.BookshelfFacade;
 
 import java.io.Serializable;
 
@@ -13,7 +14,7 @@ public class BookshelfDTO implements Serializable {
     private String author;
     private String description;
 
-    public BookshelfDTO(Bookshelf bs){
+    public BookshelfDTO(Bookshelf bs) {
 
     }
 

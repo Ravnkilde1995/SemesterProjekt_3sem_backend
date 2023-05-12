@@ -24,7 +24,7 @@ public class SetupTestUsers {
     User admin = new User("admin", "test123");
     User both = new User("user_admin", "test123");
 
-    if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
+    if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test") )
       throw new UnsupportedOperationException("You have not changed the passwords");
 
     em.getTransaction().begin();
