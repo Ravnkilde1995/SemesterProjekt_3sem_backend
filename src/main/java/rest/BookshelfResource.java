@@ -69,8 +69,9 @@ public class BookshelfResource {
     public Response createBookshelf(String content) {
         BookshelfDTO bs = GSON.fromJson(content, BookshelfDTO.class);
         //tjekke om hvorvidt der er en bog med username & en titel
+        System.out.println(bs + "tjek lige her");
 
-        Bookshelf b = bookshelfFacade.addBookshelf(bs.getUser_name(), bs.getTitle(), bs.getAuthor(), bs.getDescription());
+        Bookshelf b = bookshelfFacade.addBookshelf(bs.getUser_name(), bs.getTitle(), bs.getAuthor(), bs.getDescription(),bs.getGoogle_id());
         return Response.ok(GSON.toJson(new BookshelfDTO(b))).build();
     }
 

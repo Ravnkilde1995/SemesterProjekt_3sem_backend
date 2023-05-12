@@ -37,9 +37,9 @@ public class BookshelfFacade {
         return bookshelves;
     }
 
-    public Bookshelf addBookshelf(String user_name, String title, String author, String description) {
+    public Bookshelf addBookshelf(String user_name, String title, String author, String description, String google_id) {
         EntityManager em = emf.createEntityManager();
-        Bookshelf bookshelf = new Bookshelf(user_name, title, author, description);
+        Bookshelf bookshelf = new Bookshelf(user_name, title, author, description, google_id);
         em.getTransaction().begin();
         em.persist(bookshelf);
         em.getTransaction().commit();

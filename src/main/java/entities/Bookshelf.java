@@ -25,16 +25,20 @@ public class Bookshelf implements Serializable {
     @Column(name="description")
     private String description;
 
+    @Column(name="google_id")
+    private String google_id;
+
 
     public Bookshelf(){
 
     }
 
-    public Bookshelf(String user_name, String title, String author, String description) {
+    public Bookshelf(String user_name, String title, String author, String description, String google_id) {
         this.user_name = user_name;
         this.title = title;
         this.author = author;
         this.description = description;
+        this.google_id = google_id;
     }
 
     public Bookshelf(String user_name) {
@@ -81,6 +85,14 @@ public class Bookshelf implements Serializable {
         this.description = description;
     }
 
+    public String getGoogle_id() {
+        return google_id;
+    }
+
+    public void setGoogle_id(String google_id) {
+        this.google_id = google_id;
+    }
+
     @Override
     public String toString() {
         return "Bookshelf{" +
@@ -89,6 +101,7 @@ public class Bookshelf implements Serializable {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
+                ", google_id='" + google_id + '\'' +
                 '}';
     }
 }
