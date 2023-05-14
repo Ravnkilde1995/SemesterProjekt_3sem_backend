@@ -1,5 +1,6 @@
 package facades;
 
+import entities.Book;
 import entities.Bookshelf;
 import entities.RenameMe;
 import org.junit.jupiter.api.*;
@@ -66,15 +67,22 @@ public class BookShelfTest {
     }
 
 
-
     //TODO: IMPLIMENT UNIT-TESTING BELOW..
 
     @Test
-    public void testListBookshelf () {
+    public void addBookshelf() throws Exception {
 
-        List<Bookshelf> actual = Arrays.asList();
-        List<Bookshelf> expected = Arrays.asList();
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.createNamedQuery("Bookshelf.deleteAllRows").executeUpdate();
+            Bookshelf test = new Bookshelf("Ole", "Den lille havfrue", "H.C Andersen", "Hun er meget lille", "test");
+            em.persist(test);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
     }
-
 }
 
