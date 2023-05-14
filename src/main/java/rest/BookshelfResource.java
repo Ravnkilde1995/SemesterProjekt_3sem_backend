@@ -69,10 +69,25 @@ public class BookshelfResource {
     public Response createBookshelf(String content) {
         BookshelfDTO bs = GSON.fromJson(content, BookshelfDTO.class);
         //tjekke om hvorvidt der er en bog med username & en titel
-        System.out.println(bs + "tjek lige her");
 
         Bookshelf b = bookshelfFacade.addBookshelf(bs.getUser_name(), bs.getTitle(), bs.getAuthor(), bs.getDescription(),bs.getGoogle_id());
         return Response.ok(GSON.toJson(new BookshelfDTO(b))).build();
     }
+
+    /*
+    Todo: edit update function if time.
+    @PUT
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Path("{id}")
+    public Response putHobby(@PathParam("id") long id, String input) throws Exception {
+        HobbyDTO hdto = GSON.fromJson(input, HobbyDTO.class);
+        System.out.println(hdto);
+
+        System.out.println("Get the id yes: " + hdto.getId());
+        hdto = FACADE.updateHobby(id, hdto);
+        hdto.setId(id);
+        return Response.ok().entity(hdto).build();
+    }*/
 
 }

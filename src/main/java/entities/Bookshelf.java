@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "bookshelf")
+@NamedQuery(name = "Bookshelf.deleteAllRows", query = "DELETE from Bookshelf ")
 public class Bookshelf implements Serializable {
 
 

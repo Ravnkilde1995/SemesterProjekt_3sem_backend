@@ -58,4 +58,26 @@ public class BookshelfFacade {
         return RenameMeDTO.getDtos(rms);
     }*/
 
+    /*
+    Todo: edit update function if time.
+    public HobbyDTO updateHobby(long id,HobbyDTO hdto) {
+        EntityManager em = emf.createEntityManager();
+        Hobby hobby = em.find(Hobby.class, id);
+        System.out.println("updateHobby: " +hobby);
+        System.out.println("idIsNotNull: " + id);
+        hobby.setName(hdto.getName());
+        hobby.setDescription(hdto.getDescription());
+        hobby.setCategory(hdto.getCategory());
+
+        try {
+            em.getTransaction().begin();
+            em.merge(hobby);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new HobbyDTO(hobby);
+
+    }*/
+
 }
