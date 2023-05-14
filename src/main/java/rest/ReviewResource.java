@@ -60,7 +60,7 @@ public class ReviewResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public Response createReview(String content) {
         ReviewDTO rd = GSON.fromJson(content, ReviewDTO.class);
-        Review r = reviewFacade.addReview(rd.getBook_id(), rd.getReview_score(), rd.getReview_text());
+        Review r = reviewFacade.addReview(rd.getGoogle_id(), rd.getReview_score(), rd.getReview_text());
         return Response.ok(GSON.toJson(new ReviewDTO(r))).build();
     }
 

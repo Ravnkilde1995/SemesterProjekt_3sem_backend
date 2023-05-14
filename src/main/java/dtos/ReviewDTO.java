@@ -8,7 +8,7 @@ public class ReviewDTO implements Serializable {
 
     private int review_id;
     private int bookshelf_id;
-    private int book_id;
+    private String google_id;
     private int review_score;
     private String review_text;
 
@@ -32,11 +32,12 @@ public class ReviewDTO implements Serializable {
         this.bookshelf_id = bookshelf_id;
     }
 
-    public int getBook_id() {
-        return book_id;
+    public String getGoogle_id() {
+        return google_id;
     }
-    public void setBook_id(int book_id) {
-        this.book_id = book_id;
+
+    public void setGoogle_id(String google_id) {
+        this.google_id = google_id;
     }
 
     public int getReview_score() {
@@ -58,6 +59,7 @@ public class ReviewDTO implements Serializable {
         return "ReviewDTO{" +
                 "review_id=" + review_id +
                 ", bookshelf_id=" + bookshelf_id +
+                ", google_id='" + google_id + '\'' +
                 ", review_score=" + review_score +
                 ", review_text='" + review_text + '\'' +
                 '}';

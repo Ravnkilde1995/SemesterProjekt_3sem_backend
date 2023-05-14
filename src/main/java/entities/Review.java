@@ -18,8 +18,8 @@ public class Review implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "book_id")
-    private int book_id;
+    @Column(name = "google_id")
+    private String google_id;
 
     @Basic(optional = false)
     @NotNull
@@ -36,8 +36,8 @@ public class Review implements Serializable {
     public Review() {
     }
 
-    public Review(int book_id, int review_score, String review_text) {
-        this.book_id = book_id;
+    public Review(String google_id, int review_score, String review_text) {
+        this.google_id = google_id;
         this.review_score = review_score;
         this.review_text = review_text;
     }
@@ -45,21 +45,16 @@ public class Review implements Serializable {
     public int getReview_id() {
         return review_id;
     }
+
     public void setReview_id(int review_id) {
         this.review_id = review_id;
-    }
-
-    public int getBook_id() {
-        return book_id;
-    }
-    public void setBook_id(int book_id) {
-        this.book_id = book_id;
     }
 
 
     public int getReview_score() {
         return review_score;
     }
+
     public void setReview_score(int review_score) {
         this.review_score = review_score;
     }
@@ -67,17 +62,28 @@ public class Review implements Serializable {
     public String getReview_text() {
         return review_text;
     }
+
     public void setReview_text(String review_text) {
         this.review_text = review_text;
+    }
+
+    public String getGoogle_id() {
+        return google_id;
+    }
+
+    public void setGoogle_id(String google_id) {
+        this.google_id = google_id;
     }
 
     @Override
     public String toString() {
         return "Review{" +
                 "review_id=" + review_id +
-                ", book_id=" + book_id +
+                ", google_id='" + google_id + '\'' +
                 ", review_score=" + review_score +
                 ", review_text='" + review_text + '\'' +
                 '}';
     }
 }
+
+

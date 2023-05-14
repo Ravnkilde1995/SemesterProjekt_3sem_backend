@@ -9,8 +9,7 @@ import utils.EMF_Creator;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -63,7 +62,8 @@ public class BookShelfTest {
     // TODO: Delete or change this method
     @Test
     public void testAFacadeMethod() throws Exception {
-        assertEquals(1, facade.getByUsername("oleTest"), "EXPECTS METHOD TO RETURN A BOOKSHELF OBJECT BY USERNAME");
+
+        assertEquals(1, facade.getByUsername("oleTest").size());
     }
 
 

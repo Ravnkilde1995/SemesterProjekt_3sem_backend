@@ -32,9 +32,9 @@ public class ReviewFacade {
         return instance;
     }
 
-    public Review addReview(int book_id, int review_score, String review_text) {
+    public Review addReview(String google_id, int review_score, String review_text) {
         EntityManager em = emf.createEntityManager();
-        Review review = new Review(book_id, review_score, review_text);
+        Review review = new Review(google_id, review_score, review_text);
         em.getTransaction().begin();
         em.persist(review);
         em.getTransaction().commit();
@@ -43,10 +43,10 @@ public class ReviewFacade {
         return review;
     }
 
-public Review editReview(int review_id, int book_id, int review_score, String review_text) {
+public Review editReview(int review_id, String google_id, int review_score, String review_text) {
         EntityManager em = emf.createEntityManager();
         Review review = em.find(Review.class, review_id);
-        review.setBook_id(book_id);
+        review.setGoogle_id(google_id);
         review.setReview_score(review_score);
         review.setReview_text(review_text);
         em.getTransaction().begin();
