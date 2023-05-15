@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "review")
+@NamedQuery(name = "Review.deleteAllRows", query = "DELETE from Review ")
 public class Review implements Serializable {
 
     private static final long serialVersionUID = 1L;

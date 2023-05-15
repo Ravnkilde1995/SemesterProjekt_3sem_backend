@@ -44,6 +44,19 @@ public class UserFacade {
         return user;
     }
 
+    public User create(User user) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(user);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
+        return user;
+    }
+
     public User addUser(String username, String password) {
         EntityManager em = emf.createEntityManager();
         Role userRole = new Role("user");
