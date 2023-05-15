@@ -1,15 +1,11 @@
 package facades;
 
-import entities.Book;
 import entities.Bookshelf;
-import entities.RenameMe;
 import org.junit.jupiter.api.*;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-
-import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
