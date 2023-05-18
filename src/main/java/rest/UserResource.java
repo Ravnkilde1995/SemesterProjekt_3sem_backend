@@ -58,7 +58,7 @@ public class UserResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public Response createUser(String content) {
         UserDTO ud = GSON.fromJson(content, UserDTO.class);
-        User u = userFacade.addUser(ud.getUsername(), ud.getPassword());
+        User u = userFacade.addUserRole(ud.getUsername());
         return Response.ok(GSON.toJson(new UserDTO(u))).build();
     }
 

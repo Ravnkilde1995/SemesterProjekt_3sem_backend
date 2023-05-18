@@ -3,6 +3,7 @@ package facades;
 import entities.Bookshelf;
 import entities.User;
 import org.junit.jupiter.api.*;
+import security.errorhandling.AuthenticationException;
 import utils.EMF_Creator;
 
 import javax.persistence.EntityManager;
@@ -35,8 +36,8 @@ public class UserFacadeTest {
             em.createNamedQuery("User.deleteAllRows").executeUpdate();
             user = new User("user", "test");
             admin = new User("admin", "test");
-            b1 = new Bookshelf(user.getUserName());
-            b2 = new Bookshelf(admin.getUserName());
+            b1 = new Bookshelf(user);
+            b2 = new Bookshelf(admin);
             em.persist(user);
             em.persist(admin);
             em.persist(b1);
@@ -60,5 +61,21 @@ public class UserFacadeTest {
         assertEquals(expected, actual);
 
     }
+
+    @Test
+    public void getVerifiedUser() throws AuthenticationException {
+        System.out.println("Testing getVerifiedUser(String username, String password)");
+        User expected = user;
+        User actual = facade.getVerifiedUser(user.getUserName(), user.getUserPass());
+        assertEquals(expected, actual);
+    }
+
+//    @Test
+//    public void addUserRole() {
+//        System.out.println("Testing addUserRole(String username, String role)");
+//        String expected = "admin";
+//        String actual = facade.addUserRole(user.getUserName());
+//        assertEquals(expected, actual);
+//    }
 
 }

@@ -7,8 +7,7 @@ import java.io.Serializable;
 public class ReviewDTO implements Serializable {
 
     private int review_id;
-    private int bookshelf_id;
-    private String google_id;
+    private int books_in_bookshelf_id;
     private int review_score;
     private String review_text;
 
@@ -25,19 +24,11 @@ public class ReviewDTO implements Serializable {
         this.review_id = review_id;
     }
 
-    public int getBookshelf_id() {
-        return bookshelf_id;
+    public int getBooks_in_bookshelf_id() {
+        return books_in_bookshelf_id;
     }
-    public void setBookshelf_id(int bookshelf_id) {
-        this.bookshelf_id = bookshelf_id;
-    }
-
-    public String getGoogle_id() {
-        return google_id;
-    }
-
-    public void setGoogle_id(String google_id) {
-        this.google_id = google_id;
+    public void setBooks_in_bookshelf_id(int books_in_bookshelf_id) {
+        this.books_in_bookshelf_id = books_in_bookshelf_id;
     }
 
     public int getReview_score() {
@@ -58,8 +49,8 @@ public class ReviewDTO implements Serializable {
     public String toString() {
         return "ReviewDTO{" +
                 "review_id=" + review_id +
-                ", bookshelf_id=" + bookshelf_id +
-                ", google_id='" + google_id + '\'' +
+                ", books_in_bookshelf_id=" + books_in_bookshelf_id +
+//                ", google_id='" + google_id + '\'' +
                 ", review_score=" + review_score +
                 ", review_text='" + review_text + '\'' +
                 '}';

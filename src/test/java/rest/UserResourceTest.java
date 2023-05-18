@@ -23,6 +23,7 @@ import java.net.URI;
 
 import static io.restassured.RestAssured.given;
 
+
 public class UserResourceTest {
 
     private static final int SERVER_PORT = 7777;
@@ -61,13 +62,13 @@ public class UserResourceTest {
 
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("Delete from User").executeUpdate();
-            em.createNamedQuery("Delete from Role").executeUpdate();
+            em.createNamedQuery("delete from User").executeUpdate();
+            em.createNamedQuery("delete from Role").executeUpdate();
 
             Role userRole = new Role("user");
             Role adminRole = new Role("admin");
-            User user = new User("user", "test");
-            User admin = new User("admin", "test");
+            User user = new User("user", "userTest");
+            User admin = new User("admin", "adminTest");
             user.addRole(userRole);
             admin.addRole(adminRole);
             em.persist(userRole);

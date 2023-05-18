@@ -57,16 +57,28 @@ public class UserFacade {
         return user;
     }
 
-    public User addUser(String username, String password) {
+    public User addUserRole(String username) {
         EntityManager em = emf.createEntityManager();
         Role userRole = new Role("user");
-        User user = new User(username, password);
+        User user = new User(username, "user");
         user.addRole(userRole);
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
         em.close();
 
+        return user;
+    }
+
+    public User addAdminRole(String username) {
+        EntityManager em = emf.createEntityManager();
+        Role adminRole = new Role("admin");
+        User user = new User(username, "admin");
+        user.addRole(adminRole);
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+        em.close();
 
         return user;
     }

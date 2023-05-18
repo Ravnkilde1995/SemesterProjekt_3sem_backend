@@ -1,5 +1,7 @@
 package facades;
 import entities.Bookshelf;
+import entities.User;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
@@ -37,9 +39,9 @@ public class BookshelfFacade {
         return bookshelves;
     }
 
-    public Bookshelf addBookshelf(String user_name, String title, String author, String description, String google_id) {
+    public Bookshelf addBookshelf(User user) {
         EntityManager em = emf.createEntityManager();
-        Bookshelf bookshelf = new Bookshelf(user_name, title, author, description, google_id);
+        Bookshelf bookshelf = new Bookshelf(user);
         em.getTransaction().begin();
         em.persist(bookshelf);
         em.getTransaction().commit();

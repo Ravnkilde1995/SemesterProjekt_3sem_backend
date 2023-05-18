@@ -1,6 +1,7 @@
 package utils;
 
 
+import entities.Bookshelf;
 import entities.Role;
 import entities.User;
 
@@ -30,12 +31,21 @@ public class SetupTestUsers {
     em.getTransaction().begin();
     Role userRole = new Role("user");
     Role adminRole = new Role("admin");
+    Bookshelf userBookshelf = new Bookshelf(user);
+    Bookshelf adminBookshelf = new Bookshelf(admin);
+//    Bookshelf bothBookshelf = new Bookshelf("user_admin");
     user.addRole(userRole);
     admin.addRole(adminRole);
     both.addRole(userRole);
     both.addRole(adminRole);
+//    user.addBookshelf("user");
+//    admin.addBookshelf("admin");
+//    both.addBookshelf(bothBookshelf);
     em.persist(userRole);
     em.persist(adminRole);
+    em.persist(userBookshelf);
+    em.persist(adminBookshelf);
+//    em.persist(bothBookshelf);
     em.persist(user);
     em.persist(admin);
     em.persist(both);

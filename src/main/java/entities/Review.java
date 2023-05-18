@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NamedQuery(name = "Review.deleteAllRows", query = "DELETE from Review ")
 public class Review implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+//    private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -19,8 +19,8 @@ public class Review implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "google_id")
-    private String google_id;
+    @Column(name = "books_in_bookshelf_id")
+    private int books_in_bookshelf_id;
 
     @Basic(optional = false)
     @NotNull
@@ -37,8 +37,8 @@ public class Review implements Serializable {
     public Review() {
     }
 
-    public Review(String google_id, int review_score, String review_text) {
-        this.google_id = google_id;
+    public Review(int books_in_bookshelf_id, int review_score, String review_text) {
+        this.books_in_bookshelf_id = books_in_bookshelf_id;
         this.review_score = review_score;
         this.review_text = review_text;
     }
@@ -68,19 +68,28 @@ public class Review implements Serializable {
         this.review_text = review_text;
     }
 
-    public String getGoogle_id() {
-        return google_id;
+    public int getBooks_in_bookshelf_id() {
+        return books_in_bookshelf_id;
     }
 
-    public void setGoogle_id(String google_id) {
-        this.google_id = google_id;
+    public void setBooks_in_bookshelf_id(int books_in_bookshelf_id) {
+        this.books_in_bookshelf_id = books_in_bookshelf_id;
     }
+//
+//    public String getGoogle_id() {
+//        return google_id;
+//    }
+//
+//    public void setGoogle_id(String google_id) {
+//        this.google_id = google_id;
+//    }
 
     @Override
     public String toString() {
         return "Review{" +
                 "review_id=" + review_id +
-                ", google_id='" + google_id + '\'' +
+                ", books_in_bookshelf_id='" + books_in_bookshelf_id + '\'' +
+//                ", google_id='" + google_id + '\'' +
                 ", review_score=" + review_score +
                 ", review_text='" + review_text + '\'' +
                 '}';

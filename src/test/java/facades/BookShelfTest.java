@@ -1,6 +1,7 @@
 package facades;
 
 import entities.Bookshelf;
+import entities.User;
 import org.junit.jupiter.api.*;
 import utils.EMF_Creator;
 
@@ -43,7 +44,7 @@ public class BookShelfTest {
             em.getTransaction().begin();
             em.createNamedQuery("Bookshelf.deleteAllRows").executeUpdate();
             //em.persist(new Bookshelf("user_name", "title", "author", "description", "google_id"));
-            em.persist(new Bookshelf("oleTest", "Ole's bog", "Ole er forfatter", "Dette er en test", "test"));
+            em.persist(new Bookshelf(new User("oleTest", "test123")));
             em.getTransaction().commit();
         } finally {
             em.close();
@@ -72,7 +73,7 @@ public class BookShelfTest {
         try {
             em.getTransaction().begin();
             em.createNamedQuery("Bookshelf.deleteAllRows").executeUpdate();
-            Bookshelf test = new Bookshelf("Ole", "Den lille havfrue", "H.C Andersen", "Hun er meget lille", "test");
+            Bookshelf test = new Bookshelf(new User("oleTest", "test123"));
             em.persist(test);
             em.getTransaction().commit();
         } finally {
