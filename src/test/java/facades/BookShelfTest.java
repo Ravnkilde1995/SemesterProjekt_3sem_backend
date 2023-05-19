@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BookShelfTest {
 
-    //TODO:
-    // IMPLIMENT REST ASSUSRE TESTING
-    // CREATE A NEW PIPELINE ON GITHUB ACTIONS WITH THESE TESTS
     // Uncomment the line below, to temporarily disable this test
     // @Disabled
 
@@ -55,15 +52,13 @@ public class BookShelfTest {
 //        Remove any data after each test was run
     }
 
-    // TODO: Delete or change this method
+
     @Test
     public void testAFacadeMethod() throws Exception {
 
         assertEquals(1, facade.getByUsername("oleTest").size());
     }
 
-
-    //TODO: IMPLIMENT UNIT-TESTING BELOW..
 
     @Test
     public void addBookshelf() throws Exception {
